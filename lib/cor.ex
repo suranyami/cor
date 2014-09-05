@@ -1,0 +1,2 @@
+defmodule Cor do
+end
