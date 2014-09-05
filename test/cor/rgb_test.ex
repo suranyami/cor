@@ -7,9 +7,10 @@ defmodule Cor.RgbTest do
   # tolerance value of each other.
   @color_tolerance 1e-4
 
-  test "red" do
-    red = Cor.Rgb.red
-    assert_in_delta 1.0, red.r, @color_tolerance
+  test "primary colors" do
+    assert_in_delta 1.0, Cor.Rgb.red.r, @color_tolerance
+    assert_in_delta 1.0, Cor.Rgb.green.g, @color_tolerance
+    assert_in_delta 1.0, Cor.Rgb.blue.blue, @color_tolerance
   end
 end
 
