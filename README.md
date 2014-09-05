@@ -1,4 +1,4 @@
-Cor
+cor
 ===
 
-** TODO: Add description **
+A colour library for Elixir
