@@ -1,18 +1,24 @@
-
 defmodule Cor.RgbTest do
   use ExUnit.Case
+
+  alias Cor.Rgb, as: Rgb
 
   # The tolerance for comparing the components of two colours. In general,
   # colours are considered equal if all of their components are within this
   # tolerance value of each other.
-  @color_tolerance 1e-4
+  @color_tolerance 1.0e-4
 
   test "primary colors" do
     assert_in_delta 1.0, Cor.Rgb.red.r, @color_tolerance
     assert_in_delta 1.0, Cor.Rgb.green.g, @color_tolerance
-    assert_in_delta 1.0, Cor.Rgb.blue.blue, @color_tolerance
+    assert_in_delta 1.0, Cor.Rgb.blue.b, @color_tolerance
+  end
+
+  test "html" do
+    assert(Rgb.html(Rgb.red) == "#FF0000")
   end
 end
+
 
 # module TestColor
 #   class TestRGB < Minitest::Test
