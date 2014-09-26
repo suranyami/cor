@@ -1,4 +1,5 @@
 defmodule Cor.Rgb do
+  import Hexate, only: [:encode]
   defstruct r: 0.0, g: 0.0, b: 0.0
 
   def red,   do: %Cor.Rgb{r: 1.0, g: 0.0, b: 0.0}
@@ -14,7 +15,12 @@ defmodule Cor.Rgb do
   end
 
   def html(color) do
-    Hex.encode color
+    "\##{hex_digits color.r}#{hex_digits color.g}#{hex_digits color.b}"
+  end
+
+  def hex_digits(num) do
+    num * 255
+    |> Hexate.encode 2
   end
 
   @doc """

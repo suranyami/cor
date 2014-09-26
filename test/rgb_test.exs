@@ -1,3 +1,5 @@
+Code.require_file "test_helper.exs", __DIR__
+
 defmodule Cor.RgbTest do
   use ExUnit.Case
 
@@ -14,8 +16,13 @@ defmodule Cor.RgbTest do
     assert_in_delta 1.0, Cor.Rgb.blue.b, @color_tolerance
   end
 
+  test "hex_digits" do
+    assert(Cor.Rgb.hex_digits(1.0) == "ff")
+    assert(Cor.Rgb.hex_digits(0)   == "00")
+  end
+
   test "html" do
-    assert(Rgb.html(Rgb.red) == "#FF0000")
+    assert(Rgb.html(Rgb.red) == "ff0000")
   end
 end
 
