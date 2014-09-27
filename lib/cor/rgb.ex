@@ -19,8 +19,43 @@ defmodule Cor.Rgb do
   end
 
   def hex_digits(num) do
-    list = num * 255
-    |> Hexate.encode 2
+    list = num * 255 |> Hexate.encode 2
+    String.upcase list
+  end
+
+  @doc """
+  Returns a new colour with the brightness adjusted by the specified
+  percentage. Negative percentages will darken the colour; positive
+  percentages will brighten the colour.
+
+  ## Example:
+      iex> Rgb.blue |> Rgb.adjust_brightness 10 |> Rgb.html
+      "#1a1aff"
+  """
+  def adjust_brightness(color, percent) do
+    norm_percent = normalize_percent percent
+    to_hsl(color).l
+    |> * percent
+    Hsl.to_rgb
+  end
+
+
+  def normalize_percent(percent) do
+    percent / 100.0
+    |> + 1.0
+    |> min 2.0
+    |> max 0.0
+  end
+
+  @doc """
+  Converts a float from 0.0 to 1.0 into the range 0..100%
+  as an integer
+  ## Example
+      iex> Cor.Rgb.as_byte(1.0)
+      255
+  """
+  def as_per(float) do
+    round(float * 100.0)
   end
 
   @doc """
