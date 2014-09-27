@@ -7,11 +7,11 @@ defmodule Cor.Rgb do
   def blue,  do: %Cor.Rgb{r: 0.0, g: 0.0, b: 1.0}
 
   def as_percent(color) do
-    %Cor.Rgb{r: color.r * 100, g: color.g * 100, b: color.b * 100}
+    %Cor.Rgb{r: as_per(color.r), g: as_per(color.g), b: as_per(color.b)}
   end
 
   def as_bytes(color) do
-    %Cor.Rgb{r: color.r * 255, g: color.g * 255, b: color.b * 255}
+    %Cor.Rgb{r: as_byte(color.r), g: as_byte(color.g), b: as_byte(color.b)}
   end
 
   def html(color) do
