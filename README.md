@@ -1,4 +1,4 @@
-cor
+Cor
 ===
 
-A colour library for Elixir
+A colour library for Elixir.
