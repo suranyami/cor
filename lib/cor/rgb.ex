@@ -19,7 +19,7 @@ defmodule Cor.Rgb do
   end
 
   def hex_digits(num) do
-    num * 255
+    list = num * 255
     |> Hexate.encode 2
   end
 
